@@ -1,0 +1,68 @@
+/* Css do componente Hero */
+h3 {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 700;
+}
+
+p {
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+img.item-1 {
+    filter: brightness(55%);
+}
+
+img.item-2 {
+    filter: brightness(55%);
+}
+
+img.item-3 {
+    filter: brightness(55%);
+}
+
+@media only screen and (min-width: 1281px) {
+    h3 {
+        font-size: 3vw !important;
+    }
+    p {
+        font-size: 1vw;
+    }
+}
+
+@media only screen and (min-width: 1025px) and (max-width: 1280px) {
+    h3 {
+        font-size: 4vw !important;
+    }
+    p {
+        font-size: 1.3vw;
+    }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+    h3 {
+        font-size: 4.5vw !important;
+    }
+    p {
+        font-size: 1.6vw;
+    }
+}
+
+@media only screen and (min-width: 641px) and (max-width: 768px) {
+    h3 {
+        font-size: 5vw !important;
+    }
+    p {
+        font-size: 1.8vw;
+    }
+}
+
+@media only screen and (min-width: 0px) and (max-width: 640px) {
+    h3 {
+        font-size: 5.5vw;
+    }
+    p {
+        font-size: 2vw;
+    }
+}
+
+
