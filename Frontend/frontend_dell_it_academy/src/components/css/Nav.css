@@ -1,0 +1,36 @@
+/* Css da Nav */
+.navbar-custom{
+    background-color: transparent;
+    padding: 0.625rem, 0.625rem;
+}
+
+.nav-link-customfont,
+.nav-link,
+.nav-item,
+.dropdown-item {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #0672CB;
+}
+
+.nav-link-customfont:hover,
+.nav-link:hover,
+.nav-item:hover,
+.dropdown-item:hover {
+    color: #002A58;
+}
+
+.span-custom-color {
+    color: #EEE9DA;
+    padding: 0 0.625rem;
+    font-size: 2rem;
+}
+
+.nav-item {
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+}
+
+.navbar .navbar-nav .nav-link.dropdown-toggle::after {
+    display: none !important;
+}
