@@ -1,0 +1,15 @@
+/* Css do componente ClientForm */
+.form-client {
+  padding-top: 4em;
+}
+
+.form-label-client {
+  font-size: 1.5em;
+  font-weight: 700;
+}
+
+.form-label-cpf {
+  font-size: 1.5em;
+  font-weight: 700;
+  padding-top: 20px;
+}
