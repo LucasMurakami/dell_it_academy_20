@@ -26,8 +26,8 @@ const Hero = () => {
                 <a href='/editions'>
                 <img
                     className='item-2 d-block w-100'
-                    src='src\assets\images\homepage_images\Autumn_leafs.png'
-                    alt='Autumn_leafs'
+                    src='src\assets\images\homepage_images\Autumn_Leafs.png'
+                    alt='Autumn_Leafs'
                 ></img>
                 </a>
                 <Carousel.Caption>

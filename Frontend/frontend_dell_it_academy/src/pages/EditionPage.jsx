@@ -71,8 +71,9 @@ const Edition = () => {
     handleCloseApuration();
     const lastEdition = await getCurrentEdition();   
 
-    console.log(lastEdition.data);
-    if(lastEdition.data.id === null) {      
+    console.log(lastEdition);
+
+    if(lastEdition.data.id === null || lastEdition?.data?.isActive === false) {      
       alert('Nenhuma edição foi encontrada. Inicie uma edição para poder ir para fase de apuração!');
       return;   
     }
