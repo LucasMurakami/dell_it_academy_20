@@ -20,7 +20,6 @@ const CardComponent = () => {
   async function getCurrentEdition() {
     try {
       const response = await getLastEdition();  
-      console.log(response.data)
       setWinnerData(response.data);
       return response;
     } catch (error) {

@@ -22,12 +22,14 @@ const CountNumberBetCard = () => {
   async function listMostNumbersBettedByEdition() {
     const currentEdition = await getCurrentEdition();
     if (currentEdition && currentEdition.data) {
-        setCurrentEditionState(currentEdition.data);
+      setCurrentEditionState(currentEdition.data);
+      if(currentEdition.data.id !== null) {
         findHighestNumbersByEditionId(currentEdition.data.id).then(response => {
           setMostNumbersBetted(response.data);
         }).catch(error => {
           console.log(error)
         })
+      }
     }
   }  
 
