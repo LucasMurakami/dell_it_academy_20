@@ -116,7 +116,7 @@ const Edition = () => {
             onClickFunction={createEditionBackend}
             cardTitle="EDIÇÃO"
             cardText1="Comece uma nova edição e esteja livre para apostar quantas vezes quiser!"
-            btnText="Clique aqui para iniciar uma nova edição"
+            btnText="Clique aqui para iniciar uma nova edição!"
           />
           {showModalEditionSuccess && <ModalComponent 
             title="Sucesso!"
@@ -128,11 +128,11 @@ const Edition = () => {
           />}
           {showModalEditionFail && <ModalComponent 
             title="Erro!" 
-            text="Não foi possível iniciar uma nova edição! Parece que uma edição já está em atividade! Vá apostar!" 
+            text="Não foi possível iniciar uma nova edição. Parece que uma edição já está em atividade! Vá apostar!" 
             show={showModalEditionFail} 
             handleClose={handleCloseEditionFail} 
-            handleButtonClick={handleCloseEditionFail} 
-            btnTextConfirmar="Confimar"
+            handleButtonClick={betPage} 
+            btnTextConfirmar="Apostar!"
           />}
         </Col>
         <Col>

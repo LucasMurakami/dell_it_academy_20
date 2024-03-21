@@ -301,7 +301,7 @@ const BetCard = () => {
           <Button className='betCard-page-btn' onClick={createBetCardBackend}>Apostar</Button>
           {isEditionShow && (
             <ModalComponent 
-              title='Erro ao criar aposta' 
+              title='Erro ao criar aposta!' 
               text='Nenhuma edição foi encontrada. Inicie uma edição para poder apostar! Vá para a página de cadastro de edição!' 
               show={isEditionShow} 
               handleClose={isEditionCloseHandler}
@@ -311,7 +311,7 @@ const BetCard = () => {
           )}
           {isClientValidShow && (
             <ModalComponent 
-              title='Erro ao criar aposta' 
+              title='Erro ao criar aposta!' 
               text='Preencha corretamente os campos de nome e CPF para poder apostar!' 
               show={isClientValidShow} 
               handleClose={isClientValidCloseHandler}
@@ -343,7 +343,7 @@ const BetCard = () => {
           )}
           {isSelectedNumberValid && (
             <ModalComponent 
-              title='Erro ao criar aposta' 
+              title='Erro ao criar aposta!' 
               text='Selecione 5 números para poder apostar!' 
               show={isSelectedNumberValid} 
               handleClose={isSelectedNumbersValidCloseHandler}

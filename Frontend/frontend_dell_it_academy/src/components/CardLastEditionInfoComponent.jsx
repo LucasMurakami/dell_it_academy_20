@@ -19,12 +19,8 @@ const CardComponent = () => {
 
   async function getCurrentEdition() {
     try {
-      const response = await getLastEdition();
-      // console.log(response.data);
-  
+      const response = await getLastEdition();  
       setWinnerData(response.data);
-      // console.log(winnerData);
-      // console.log(winnerData.luckyClients)
       return response;
     } catch (error) {
       console.error(error);
@@ -55,7 +51,7 @@ const CardComponent = () => {
       </Row>
       <Row className='card-row'>
         <Col className='card-col'>
-          {Array.isArray(winnerData?.luckyClients) && winnerData.luckyClients.length > 0  ? <LuckyClientsCard/>: " --- "}
+          {Array.isArray(winnerData?.luckyClients) && winnerData.luckyClients.length > 0  ? <LuckyClientsCard/>: <h1>Não houve vencedores.</h1>}
         </Col>        
       </Row>
       <Row className='card-row'>
@@ -68,8 +64,7 @@ const CardComponent = () => {
           <a className="card-link" href="/luckyclients"><button className="card-button-lastEdition">Clique aqui para ver todos ganhadores de todas edições!</button></a>
         </Col>      
       </Row> 
-    </Container>       
-    
+    </Container>   
   );
 }
 
