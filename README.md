@@ -1,6 +1,6 @@
 # DELL IT ACADEMY 20
 
-## Pré-Requisitos
+# Pré-Requisitos
 
 Antes de iniciar, certifique-se de ter em seu dispositivo as seguintes ferramentas:
 
