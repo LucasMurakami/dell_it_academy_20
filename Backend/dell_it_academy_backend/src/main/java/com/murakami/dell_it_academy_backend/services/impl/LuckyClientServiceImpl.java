@@ -68,9 +68,4 @@ public class LuckyClientServiceImpl implements LuckyClientService {
         return luckyClientList;
     }
 
-    @Override
-    @Transactional
-    public List<LuckyClientDTO> getAllLuckyClientsByEdition() {
-        return null;
-    }
 }

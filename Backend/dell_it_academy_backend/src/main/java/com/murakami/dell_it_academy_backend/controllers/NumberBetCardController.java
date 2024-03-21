@@ -70,6 +70,11 @@ public class NumberBetCardController {
         return ResponseEntity.ok(numberBetCards);
     }
 
+    /**
+     * Função para receber um GET Request no caminho ("/highest/numbersBet/{id}") que retorna todos NumberBetCard com a contagem de quantas vezes foram apostado.
+     * @param editionId                 Parâmetro para recebimento do EditionID para que possa apensar retornar NumberBetCard com determinada edição.
+     * @return                          Retorna ResponseEntity com todos NumberCountDTO encontrados e um HttpStatus OK. (Response Code 200).
+     */
     @GetMapping("/highest/numbersBet/{id}")
     public ResponseEntity<List<NumberCountDTO>> getMostNumbersBetted(@PathVariable("id") Long editionId) {
         List<NumberCountDTO> numbersCountDTO = numberBetCardService.findHighestNumbersByEditionId(editionId);

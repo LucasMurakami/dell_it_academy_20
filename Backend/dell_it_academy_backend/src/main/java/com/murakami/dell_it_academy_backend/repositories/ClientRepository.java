@@ -13,5 +13,11 @@ import java.util.List;
  */
 
 public interface ClientRepository extends JpaRepository<Client, Long> {
+
+    /**
+     * Função que busca Clients pelo CPF, como há possibilidade de existir clientes com o mesmo cpf, porém, nomes e BetCards diferentes, a função retorna uma lista de Clients.
+     * @param cpf           Parâmetro para recebimento do CPF.
+     * @return              Retorna uma lista de Clients pelo CPF.
+     */
     List<Client> findClientByCpfEquals(String cpf);
 }

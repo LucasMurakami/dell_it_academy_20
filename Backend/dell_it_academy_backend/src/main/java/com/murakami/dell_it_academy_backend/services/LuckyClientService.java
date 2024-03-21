@@ -34,5 +34,4 @@ public interface LuckyClientService {
      * @return                  Retorna Lista de LuckyClientDTO dos luckyClients encontrados no banco de dados, caso a Lista seja vazia lança a exceção @ResourceNotFoundExcpetion.
      */
     List<LuckyClientDTO> getAllLuckyClients();
-    List<LuckyClientDTO> getAllLuckyClientsByEdition();
 }

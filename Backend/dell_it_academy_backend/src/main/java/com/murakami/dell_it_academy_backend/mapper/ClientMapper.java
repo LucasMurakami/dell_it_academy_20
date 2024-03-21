@@ -73,6 +73,12 @@ public class ClientMapper {
         return client;
     }
 
+    /**
+     * Função para conversão de @Entity para DTO.
+     *
+     * @param client            Parâmetro para converter @Entity Client em ClientDTO.
+     * @return                  Retorna ClientPutBetCardDTO.
+     */
     public static ClientPutBetCardDTO mapToClientPutBetCardDTO(Client client) {
         ClientPutBetCardDTO clientPutBetCardDTO = new ClientPutBetCardDTO();
 
@@ -92,13 +98,5 @@ public class ClientMapper {
 
         clientPutBetCardDTO.setBetCardDTO(BetCardMapper.mapToBetCardDTO(betcardHighestId));
         return clientPutBetCardDTO;
-    }
-
-    public static Client mapToClientFromClientPutBetCardDTO(ClientPutBetCardDTO clientPutBetCardDTO) {
-        Client client = new Client();
-
-        client.getBetCards().add(BetCardMapper.mapToBetCard(clientPutBetCardDTO.getBetCardDTO()));
-
-        return client;
     }
 }

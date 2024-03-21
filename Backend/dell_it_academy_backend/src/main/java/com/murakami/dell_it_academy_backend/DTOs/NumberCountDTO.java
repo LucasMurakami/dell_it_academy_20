@@ -32,6 +32,13 @@ public class NumberCountDTO {
      */
     private Long count;
 
+    /**
+     * Construtor para facilidade da criação de um NumberCountDTO.
+     * @param id            Parâmetro para receber um ID.
+     * @param editionId     Parâmetro para receber um editionID.
+     * @param number        Parâmetro para receber um número.
+     * @param count         Parâmetro para receber a contagem de vezes que o número aparece.
+     */
     public NumberCountDTO(Long id, Long editionId, Integer number, Long count) {
         this.id = id;
         this.editionId = editionId;

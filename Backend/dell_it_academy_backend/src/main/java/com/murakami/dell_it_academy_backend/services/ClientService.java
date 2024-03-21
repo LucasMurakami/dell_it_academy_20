@@ -35,7 +35,18 @@ public interface ClientService {
      */
     List<ClientDTO> getAllClients();
 
+    /**
+     * Função que atualiza as BetCards do Client em espeçifico.
+     * @param clientId          Parâmetro para recebimento do ID do Client a ser procurado.
+     * @param updatedClientDTO  Parâmetro para recebimento do ClientDTO com as BetCards atualizadas.
+     * @return                  Retorna ClientDTO do Client atualizado.
+     */
     ClientPutBetCardDTO updateBetCardsClient(Long clientId, ClientPutBetCardDTO updatedClientDTO);
 
+    /**
+     * Função para buscar um Client no banco de dados pelo CPF na camada Repository.
+     * @param cpf               Parâmetro para recebimento do CPF para a busca de Clients a serem procurados.
+     * @return                  Retorna uma Lista de ClientsDTO.
+     */
     List<ClientDTO> getClientByCPF(String cpf);
 }

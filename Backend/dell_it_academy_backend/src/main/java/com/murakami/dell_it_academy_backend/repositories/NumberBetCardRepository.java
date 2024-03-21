@@ -1,6 +1,5 @@
 package com.murakami.dell_it_academy_backend.repositories;
 
-import com.murakami.dell_it_academy_backend.DTOs.NumberCountDTO;
 import com.murakami.dell_it_academy_backend.entities.NumberBetCard;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -17,6 +16,11 @@ import java.util.List;
 
 public interface NumberBetCardRepository extends JpaRepository<NumberBetCard, Long> {
 
+    /**
+     * Função para buscar e gerar uma tabela de números e quantidade de vezes que foram apostados naquela edição.
+     * @param editionId         Parâmetro para recebimento do editionID para busca.
+     * @return                  Retorna uma Lista de Object, que serão NumberBetCountDTO.
+     */
     @Query(value = "SELECT bn.NUMBER, COUNT(bn.NUMBER) AS count\n" +
             "FROM BET_NUMBERS bn\n" +
             "INNER JOIN BET_CARDS bc ON bn.BET_CARD_ID = bc.ID\n" +

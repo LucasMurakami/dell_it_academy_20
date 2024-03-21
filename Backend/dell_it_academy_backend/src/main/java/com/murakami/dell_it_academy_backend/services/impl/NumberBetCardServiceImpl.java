@@ -92,6 +92,11 @@ public class NumberBetCardServiceImpl implements NumberBetCardService {
         return numbersBetCard;
     }
 
+    /**
+     * Função para buscar todos numberBetCard com a quantidade de vezes que apareceu.
+     * @param editionId         Parâmetro para recebimento do editionID para buscar somente os números apostados naquela edição.
+     * @return                  Retorna Lista de NumberCountDTO.
+     */
     @Transactional
     public List<NumberCountDTO> findHighestNumbersByEditionId(Long editionId) {
         List<Object[]> results = numberBetCardRepository.findHighestNumbersByEditionId(editionId);

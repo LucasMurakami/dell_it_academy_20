@@ -1,9 +1,6 @@
 package com.murakami.dell_it_academy_backend.DTOs;
 
-import com.murakami.dell_it_academy_backend.entities.BetCard;
 import lombok.Data;
-
-import java.util.Set;
 
 /**
  * Classe DTO para transferência de dados.

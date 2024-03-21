@@ -35,5 +35,11 @@ public interface NumberBetCardService {
      */
     List<NumberBetCardDTO> getAllNumberBetCards();
 
+
+    /**
+     * Função para buscar todos numberBetCard com a quantidade de vezes que apareceu.
+     * @param editionId         Parâmetro para recebimento do editionID para buscar somente os números apostados naquela edição.
+     * @return                  Retorna Lista de NumberCountDTO dos numbersBetCard encontrados no banco de dados.
+     */
     List<NumberCountDTO> findHighestNumbersByEditionId(Long editionId);
 }
