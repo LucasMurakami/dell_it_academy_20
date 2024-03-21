@@ -18,7 +18,7 @@ Certifique-se de ter uma versão compatível com as versão citadas para o funci
   - Node 20.5.0
   - Npm 9.8.1
 
-## Estrutura de pastas do projeto
+## Explicação do projeto
 
 - O projeto está dividido em duas partes: frontend e backend. Sendo necessário no mínimo 2 terminais/IDE para a utilização completa do projeto.
 - O projeto possui as pastas com seus nomes dedicados para cada parte.
