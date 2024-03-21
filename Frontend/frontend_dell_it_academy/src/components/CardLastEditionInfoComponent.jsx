@@ -20,6 +20,7 @@ const CardComponent = () => {
   async function getCurrentEdition() {
     try {
       const response = await getLastEdition();  
+      console.log(response.data)
       setWinnerData(response.data);
       return response;
     } catch (error) {
@@ -51,7 +52,7 @@ const CardComponent = () => {
       </Row>
       <Row className='card-row'>
         <Col className='card-col'>
-          {Array.isArray(winnerData?.luckyClients) && winnerData.luckyClients.length > 0  ? <LuckyClientsCard/>: <h1>Não houve vencedores.</h1>}
+        {winnerData.id === null ? <h1>Nenhuma edição encontrada.</h1> : winnerData.isActive ? <h1>Edição em andamento.</h1> :  Array.isArray(winnerData.luckyClients) && winnerData.luckyClients.length > 0 ? <LuckyClientsCard/> : <h1>Não houve vencedores.</h1>}
         </Col>        
       </Row>
       <Row className='card-row'>
