@@ -1,7 +1,6 @@
 import { navLinks } from '../constants'
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
-import dell_icon from '../assets/images/dell_icon32x32.png';
 
 import './css/Nav.css';
 
@@ -12,7 +11,6 @@ const Nav = () => {
     return (
     <header>
       <nav className="navbar navbar-expand-lg navbar-custom">
-        <a className="navbar-brand" href="/"><img src={dell_icon} alt='Dell Logo'></img></a>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>

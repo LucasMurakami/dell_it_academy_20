@@ -1,4 +1,8 @@
 /* Css da Nav */
+.navbar{
+    margin-left: 2%;
+}
+
 .navbar-custom{
     background-color: transparent;
     padding: 0.625rem, 0.625rem;
@@ -9,7 +13,7 @@
 .nav-item,
 .dropdown-item {
     font-size: 1.5rem;
-    font-weight: 500;
+    font-weight: 500;   
     color: #0672CB;
 }
 

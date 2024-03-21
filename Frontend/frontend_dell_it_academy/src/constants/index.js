@@ -13,10 +13,6 @@ export const navLinks = [
                 href: "/edition", 
                 label: "Cadastrar nova edição" 
             },
-            { 
-                href: "/edition", 
-                label: "Começar apuração" 
-            },
             {
                 href: "/editions",
                 label: "Visualizar edições"
@@ -40,6 +36,17 @@ export const navLinks = [
      },
     { 
         href: "/luckyclients", 
-        label: "Premiações" 
+        label: "Premiações", 
+        dropdown: true,
+        dropdownLinks: [
+            { 
+                href: "/edition", 
+                label: "Iniciar apuração" 
+            },
+            { 
+                href: "/luckyclients", 
+                label: "Visualizar todos ganhadores" 
+            }
+        ]
     }    
 ];
