@@ -6,6 +6,7 @@ import com.murakami.dell_it_academy_backend.entities.Edition;
 import com.murakami.dell_it_academy_backend.entities.LuckyClient;
 import com.murakami.dell_it_academy_backend.exceptions.ResourceNotFoundException;
 import com.murakami.dell_it_academy_backend.mapper.EditionMapper;
+import com.murakami.dell_it_academy_backend.repositories.BetCardRepository;
 import com.murakami.dell_it_academy_backend.repositories.EditionRepository;
 import com.murakami.dell_it_academy_backend.repositories.LuckyClientRepository;
 import com.murakami.dell_it_academy_backend.services.EditionService;
@@ -14,6 +15,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -34,7 +36,15 @@ public class EditionServiceImpl implements EditionService {
      */
     private EditionRepository editionRepository;
 
+    /**
+     * Atributo para interação com o banco de dados na tabela editions na camada Repository.
+     */
     private LuckyClientRepository luckyClientRepository;
+
+    /**
+     * Atributo para interação com o banco de dados na tabela editions na camada Repository.
+     */
+    private BetCardRepository betCardRepository;
 
     /**
      * Atributo para interação com a classe UtilityClass.
@@ -100,7 +110,7 @@ public class EditionServiceImpl implements EditionService {
     public EditionDTO searchWinners() {
         Edition edition = EditionMapper.mapToEdition(getLastEdition());
         Set<Integer> luckyNumbers = new HashSet<>(edition.getLuckyNumbers());
-        Set<LuckyClient> luckyClients = new HashSet<>();
+        List<LuckyClient> luckyClients = new ArrayList<>();
 
         int luckybets = 0;
         int rounds = 0;
@@ -108,7 +118,10 @@ public class EditionServiceImpl implements EditionService {
         while(luckybets < 1 && rounds < 26) {
             for (BetCard betCard: edition.getBetCards()) {
                 if(luckyNumbers.containsAll(utilityClass.getNumbers(betCard))){
-                    luckyClients.add(new LuckyClient(betCard.getClient(), betCard.getEdition()));
+                    LuckyClient lucky = new LuckyClient(betCard.getClient(), betCard);
+                    luckyClients.add(lucky);
+                    betCard.setLuckyClient(lucky);
+                    betCardRepository.save(betCard);
                     luckybets += 1;
                 }
             }
@@ -129,7 +142,8 @@ public class EditionServiceImpl implements EditionService {
 
         luckyClientRepository.saveAll(luckyClients);
 
-        edition.setLuckyClients(luckyClients);
+
+        edition.setLuckyClients(new HashSet<>(luckyClients));
         edition.setLuckyNumbers(luckyNumbers);
         edition.setLuckyBets(luckybets);
         edition.setLotteryRounds(rounds);

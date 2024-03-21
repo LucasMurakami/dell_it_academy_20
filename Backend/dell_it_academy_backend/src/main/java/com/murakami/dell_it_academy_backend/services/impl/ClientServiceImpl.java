@@ -100,8 +100,6 @@ public class ClientServiceImpl implements ClientService {
 
         betCardService.createBetCard((updatedClientPutBetCardDTO.getBetCardDTO()));
 
-        // client.getBetCards().add(BetCardMapper.mapToBetCard(betCardDTO));
-
         return ClientMapper.mapToClientPutBetCardDTO(client);
     }
 
