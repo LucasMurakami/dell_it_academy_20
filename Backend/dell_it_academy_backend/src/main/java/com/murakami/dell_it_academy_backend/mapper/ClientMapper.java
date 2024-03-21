@@ -1,6 +1,7 @@
 package com.murakami.dell_it_academy_backend.mapper;
 
 
+import com.murakami.dell_it_academy_backend.DTOs.BetCardDTO;
 import com.murakami.dell_it_academy_backend.DTOs.ClientDTO;
 import com.murakami.dell_it_academy_backend.DTOs.ClientPutBetCardDTO;
 import com.murakami.dell_it_academy_backend.entities.BetCard;
@@ -8,6 +9,7 @@ import com.murakami.dell_it_academy_backend.entities.Client;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Classe responsável para transicionar entre DTO e Entity e vice-versa da @Entity Client para facilitar o manejamemento de dados vindos da da web ao banco de dados e vice-versa.
@@ -31,10 +33,16 @@ public class ClientMapper {
             clientDTO.setId(client.getId());
             clientDTO.setName(client.getName());
             clientDTO.setCpf(client.getCpf());
-            if(client.getBetCards() != null)
-                clientDTO.setBetCards(new ArrayList<>(client.getBetCards()));
+            if(client.getBetCards() != null){
+                Set<BetCardDTO> betSet = new HashSet<>();
+                for (BetCard betcard: client.getBetCards()) {
+                    betSet.add(BetCardMapper.mapToBetCardDTO(betcard));
+                }
+                clientDTO.setBetCards(betSet);
+            }
+
             else
-                clientDTO.setBetCards(new ArrayList<>());
+                clientDTO.setBetCards(new HashSet<>());
         }
         return clientDTO;
     }
@@ -51,8 +59,14 @@ public class ClientMapper {
         client.setId(clientDTO.getId());
         client.setName(clientDTO.getName());
         client.setCpf(clientDTO.getCpf());
-        if(clientDTO.getBetCards() != null)
-            client.setBetCards(new HashSet<>(clientDTO.getBetCards()));
+        if(clientDTO.getBetCards() != null) {
+            Set<BetCard> betSet = new HashSet<>();
+            for (BetCardDTO betcard: clientDTO.getBetCards()) {
+                betSet.add(BetCardMapper.mapToBetCard(betcard));
+            }
+            client.setBetCards(betSet);
+        }
+
         else
             client.setBetCards(new HashSet<>());
 

@@ -1,8 +1,14 @@
 package com.murakami.dell_it_academy_backend.mapper;
 
+import com.murakami.dell_it_academy_backend.DTOs.BetCardDTO;
 import com.murakami.dell_it_academy_backend.DTOs.LuckyClientDTO;
+import com.murakami.dell_it_academy_backend.entities.BetCard;
 import com.murakami.dell_it_academy_backend.entities.LuckyClient;
 import org.springframework.beans.BeanUtils;
+
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Classe responsável para transicionar entre DTO e Entity e vice-versa da @Entity LuckyClient para facilitar o manejamemento de dados vindos da da web ao banco de dados e vice-versa.
@@ -23,7 +29,9 @@ public class LuckyClientMapper {
     public static LuckyClientDTO mapToLuckyClientDTO(LuckyClient luckyClient) {
         LuckyClientDTO luckyClientDTO = new LuckyClientDTO();
         BeanUtils.copyProperties(luckyClient, luckyClientDTO);
-        luckyClientDTO.setEditionId(luckyClient.getEdition().getId());
+
+        luckyClientDTO.setBetCardDTO(BetCardMapper.mapToBetCardDTO(luckyClient.getWinnerBetCards()));
+
         return luckyClientDTO;
     }
 

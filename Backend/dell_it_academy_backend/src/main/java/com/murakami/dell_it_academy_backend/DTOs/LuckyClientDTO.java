@@ -3,6 +3,7 @@ package com.murakami.dell_it_academy_backend.DTOs;
 import lombok.Data;
 
 import java.math.BigDecimal;
+import java.util.Set;
 
 /**
  * Classe DTO da @Entity LuckyClient.
@@ -35,7 +36,7 @@ public class LuckyClientDTO {
     private BigDecimal prize;
 
     /**
-     * Atributo para representar o Identificador de uma @Entity Edition.
+     * Atributo para representar a lista de betCards ganhadoras.
      */
-    private Long editionId;
+    private BetCardDTO betCardDTO;
 }

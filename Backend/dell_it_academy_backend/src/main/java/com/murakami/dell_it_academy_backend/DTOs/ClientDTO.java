@@ -35,5 +35,5 @@ public class ClientDTO {
     /**
      * Atributo para representação de cartelas de aposta.
      */
-    private List<BetCard> betCards;
+    private Set<BetCardDTO> betCards;
 }
