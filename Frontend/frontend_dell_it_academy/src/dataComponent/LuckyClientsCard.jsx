@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { getAllLuckyClients } from "../services/LuckyClientService";
 import { Container, Row, Col } from 'react-bootstrap';
+import { getLastEdition } from "../services/EditionService";
 import './css/DataComponents.css'
 
-// Componente que renderiza a lista de ganhadores.
+// Componente que renderiza a lista de ganhadores por id.
 const LuckyClients = () => {
 
     // Variável global que armazena a lista de ganhadores.
@@ -13,13 +14,25 @@ const LuckyClients = () => {
         listLuckyClients();
     },[])
 
-    // Função que busca a lista de ganhadores.
-    function listLuckyClients() {
+    // Função que busca a lista de ganhadores por edição atual.
+    async function listLuckyClients() {
+      const currentEdition = await getCurrentEdition();
         getAllLuckyClients().then(response => {
-            setLuckyClients(response.data);
+            const filteredAndSortedClients = response.data.filter(client => client.betCardDTO.editionId === currentEdition.data.id).sort((a, b) => a.name.localeCompare(b.name));
+            setLuckyClients(filteredAndSortedClients);
         }).catch(error => {
-             console.log(error)
-        })
+            console.log(error);
+        });
+    }
+
+
+     // Função assíncrona que busca a edição atual.
+     async function getCurrentEdition() {
+      return getLastEdition().then(response => {  
+          return response;
+      }).catch(error => {
+        console.error(error);
+      })
     }
     
     // Retorna um componente React com a estrutura da lista de ganhadores.

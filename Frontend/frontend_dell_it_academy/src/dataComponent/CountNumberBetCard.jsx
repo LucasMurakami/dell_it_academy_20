@@ -22,7 +22,6 @@ const CountNumberBetCard = () => {
   async function listMostNumbersBettedByEdition() {
     const currentEdition = await getCurrentEdition();
     if (currentEdition && currentEdition.data) {
-        console.log(currentEdition.data)
         setCurrentEditionState(currentEdition.data);
         findHighestNumbersByEditionId(currentEdition.data.id).then(response => {
           setMostNumbersBetted(response.data);

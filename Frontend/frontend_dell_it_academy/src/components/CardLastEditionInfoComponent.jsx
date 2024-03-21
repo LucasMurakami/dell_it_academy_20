@@ -1,9 +1,11 @@
 
-import { Container, Row, Col, Button } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import './css/CardComponent.css';
 import CountNumberBetCard from '../dataComponent/CountNumberBetCard';
 import { getLastEdition } from "../services/EditionService";
 import { useEffect, useState } from 'react';
+
+import LuckyClientsCard from '../dataComponent/LuckyClientsCard';
 
 const CardComponent = () => {
 
@@ -18,11 +20,11 @@ const CardComponent = () => {
   async function getCurrentEdition() {
     try {
       const response = await getLastEdition();
-      console.log(response.data);
+      // console.log(response.data);
   
       setWinnerData(response.data);
-      console.log(winnerData);
-      console.log(winnerData.luckyClients)
+      // console.log(winnerData);
+      // console.log(winnerData.luckyClients)
       return response;
     } catch (error) {
       console.error(error);
@@ -53,12 +55,12 @@ const CardComponent = () => {
       </Row>
       <Row className='card-row'>
         <Col className='card-col'>
-          <p className='card-text'>Lista das apostas vencedoras: {Array.isArray(winnerData?.luckyClients) && winnerData.luckyClients.length > 0  ? winnerData.luckyClients.sort((a, b) => a.name.localeCompare(b.name)).map(client => client.name).join(", "): " --- "} </p>
+          {Array.isArray(winnerData?.luckyClients) && winnerData.luckyClients.length > 0  ? <LuckyClientsCard/>: " --- "}
         </Col>        
       </Row>
       <Row className='card-row'>
         <Col className='card-col'>
-          <CountNumberBetCard />
+          {<CountNumberBetCard />}
         </Col>        
       </Row>
       <Row className='card-row'>
