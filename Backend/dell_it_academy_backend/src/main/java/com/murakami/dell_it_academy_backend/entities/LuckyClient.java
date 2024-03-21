@@ -9,6 +9,7 @@ import lombok.Setter;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Set;
 
 /**
  * Classe de representação.
@@ -52,19 +53,19 @@ public class LuckyClient implements Serializable {
     BigDecimal prize;
 
     /**
-     * Atributo para relação @ManyToOne entre Luckyclient e Edition.
+     * Atributo para relação @OneToMany entre LuckyClient e BetCard
      */
-    @ManyToOne(fetch = FetchType.LAZY)
-    Edition edition;
+    @OneToOne(fetch = FetchType.LAZY)
+    BetCard winnerBetCards;
 
     /**
      * Construtor personalizado para criação de um LuckyClient.
      * @param client    Cliente que teve uma cartela sorteada.
-     * @param edition   Edição da cartela que o cliente ganhou.
+     * @param betCard   Cartela que o cliente ganhou.
      */
-    public LuckyClient(Client client, Edition edition) {
+    public LuckyClient(Client client, BetCard betCard) {
         this.name = client.name;
         this.cpf = client.cpf;
-        this.edition = edition;
+        this.winnerBetCards = betCard;
     }
 }
